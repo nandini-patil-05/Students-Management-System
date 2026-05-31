@@ -14,14 +14,14 @@ A web-based Student Management System built using Node.js, Express.js, LowDB, bc
 - JSON Database Storage using LowDB
 - 
 # Technologies Used
-Node.js
-Express.js
-Express Session
-bcryptjs
-LowDB
-HTML
-CSS
-JavaScript
+- Node.js
+- Express.js
+- Express Session
+- bcryptjs
+- LowDB
+- HTML
+- CSS
+- JavaScript
 
 # Project Structure
 Students-Management-System/
@@ -39,16 +39,16 @@ Students-Management-System/
 └── package-lock.json
 
 # Installation & Setup
-Clone the Repository
-git clone https://github.com/nandini-patil-05/Students-Management-System.git
-Navigate to Project Folder
-cd Students-Management-System
-Install Dependencies
-npm install
-Start the Server
-node server.js
-Open in Browser
-http://localhost:3000/register.html
+- Clone the Repository
+- git clone https://github.com/nandini-patil-05/Students-Management-System.git
+- Navigate to Project Folder
+- cd Students-Management-System
+- Install Dependencies
+- npm install
+- Start the Server
+- node server.js
+- Open in Browser
+- http://localhost:3000/register.html
 
 # Student Information Stored
 Student ID
@@ -58,33 +58,33 @@ Course
 Marks
 
 # Authentication Flow
-User registers an account.
-Password is encrypted using bcryptjs.
-User logs in with credentials.
-Session is created after successful login.
-Admin can manage student records.
+1.User registers an account.
+2.Password is encrypted using bcryptjs.
+3.User logs in with credentials.
+4.Session is created after successful login.
+5.Admin can manage student records.
 
 # CRUD Operations
-Create Student
-Read Student
-Update Student
-Delete Student
+1.Create Student
+2.Read Student
+3.Update Student
+4.Delete Student
 
 # Learning Outcomes
-Backend Development with Node.js and Express.js
-User Authentication and Session Management
-Password Security using bcryptjs
-REST API Development
-CRUD Operations
-JSON Database Management using LowDB
+- Backend Development with Node.js and Express.js
+- User Authentication and Session Management
+- Password Security using bcryptjs
+- REST API Development
+- CRUD Operations
+- JSON Database Management using LowDB
 
 # Future Enhancements
-MongoDB Integration
-Search and Filter Students
-Attendance Management
-Result Management
-Student Performance Analytics
-Report Generation
+- MongoDB Integration
+- Search and Filter Students
+- Attendance Management
+- Result Management
+- Student Performance Analytics
+- Report Generation
 
 # Author
 Nandini Patil
