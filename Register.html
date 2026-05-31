@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Student Management Registration</h2>
+
+    <form action="/register" method="POST">
+
+        <input type="text"
+               name="name"
+               placeholder="Enter Name"
+               required>
+
+        <input type="email"
+               name="email"
+               placeholder="Enter Email"
+               required>
+
+        <input type="password"
+               name="password"
+               placeholder="Enter Password"
+               required>
+
+        <select name="role" required>
+            <option value="">Select Role</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="login.html">
+        Already have an account? Login
+    </a>
+
+</div>
+
+</body>
+</html>

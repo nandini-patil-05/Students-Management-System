@@ -1,0 +1,26 @@
+{
+  "users": [],
+  "students": [
+    {
+      "id": 1780219897929,
+      "name": "Nandini Patil",
+      "email": "np5130747@gmail.com",
+      "course": "Pyhton developer",
+      "marks": "80"
+    },
+    {
+      "id": 1780219954026,
+      "name": "Shruti Gangurde",
+      "email": "shruti@123.com",
+      "course": "Data Science",
+      "marks": "90"
+    },
+    {
+      "id": 1780220017086,
+      "name": "Bhagyashri Badgujar",
+      "email": "bhagyashri@gmail.com",
+      "course": "fullstack Developer",
+      "marks": "85"
+    }
+  ]
+}

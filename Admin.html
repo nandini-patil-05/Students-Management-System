@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management Dashboard</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Management Dashboard</h1>
+
+        <!-- STUDENT FORM -->
+
+        <form id="studentForm">
+
+            <input type="hidden"
+                   id="studentId">
+
+            <input type="text"
+                   id="name"
+                   placeholder="Enter Student Name"
+                   required>
+
+            <input type="email"
+                   id="email"
+                   placeholder="Enter Email"
+                   required>
+
+            <input type="text"
+                   id="course"
+                   placeholder="Enter Course"
+                   required>
+
+            <input type="number"
+                   id="marks"
+                   placeholder="Enter Marks"
+                   required>
+
+            <button type="submit">
+                Save Student
+            </button>
+
+        </form>
+
+        <!-- STUDENT TABLE -->
+
+        <h2>Student List</h2>
+
+        <table border="1"
+               width="100%">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                    <th>Marks</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="studentTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <script>
+
+        const form =
+            document.getElementById("studentForm");
+
+        // SAVE / UPDATE STUDENT
+
+        form.addEventListener("submit",
+            async (e) => {
+
+                e.preventDefault();
+
+                const id =
+                    document.getElementById(
+                        "studentId"
+                    ).value;
+
+                const name =
+                    document.getElementById(
+                        "name"
+                    ).value;
+
+                const email =
+                    document.getElementById(
+                        "email"
+                    ).value;
+
+                const course =
+                    document.getElementById(
+                        "course"
+                    ).value;
+
+                const marks =
+                    document.getElementById(
+                        "marks"
+                    ).value;
+
+                if (id) {
+
+                    await fetch(
+                        "/update-student/" + id,
+                        {
+
+                            method: "PUT",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                name,
+                                email,
+                                course,
+                                marks
+                            })
+                        });
+
+                } else {
+
+                    await fetch("/add-student", {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            name,
+                            email,
+                            course,
+                            marks
+                        })
+                    });
+                }
+
+                form.reset();
+
+                document.getElementById(
+                    "studentId"
+                ).value = "";
+
+                loadStudents();
+            });
+
+        // LOAD STUDENTS
+
+        async function loadStudents() {
+
+            const res =
+                await fetch("/students");
+
+            const data =
+                await res.json();
+
+            let output = "";
+
+            data.forEach(student => {
+
+                output += `
+
+                <tr>
+
+                    <td>${student.id}</td>
+
+                    <td>${student.name}</td>
+
+                    <td>${student.email}</td>
+
+                    <td>${student.course}</td>
+
+                    <td>${student.marks}</td>
+
+                    <td>
+
+                        <button
+                        onclick="editStudent(
+                            '${student.id}',
+                            '${student.name}',
+                            '${student.email}',
+                            '${student.course}',
+                            '${student.marks}'
+                        )">
+
+                            Edit
+
+                        </button>
+
+                        <button
+                        onclick="deleteStudent(
+                            ${student.id}
+                        )">
+
+                            Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+                `;
+            });
+
+            document.getElementById(
+                "studentTable"
+            ).innerHTML = output;
+        }
+
+        // EDIT STUDENT
+
+        function editStudent(
+            id,
+            name,
+            email,
+            course,
+            marks
+        ) {
+
+            document.getElementById(
+                "studentId"
+            ).value = id;
+
+            document.getElementById(
+                "name"
+            ).value = name;
+
+            document.getElementById(
+                "email"
+            ).value = email;
+
+            document.getElementById(
+                "course"
+            ).value = course;
+
+            document.getElementById(
+                "marks"
+            ).value = marks;
+        }
+
+        // DELETE STUDENT
+
+        async function deleteStudent(id) {
+
+            await fetch(
+                "/delete-student/" + id,
+                {
+                    method: "DELETE"
+                });
+
+            loadStudents();
+        }
+
+        // PAGE LOAD
+
+        loadStudents();
+
+    </script>
+
+</body>
+
+</html>
