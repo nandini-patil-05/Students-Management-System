@@ -58,17 +58,17 @@ Course
 Marks
 
 # Authentication Flow
-1.User registers an account.
-2.Password is encrypted using bcryptjs.
-3.User logs in with credentials.
-4.Session is created after successful login.
-5.Admin can manage student records.
+1. User registers an account.
+2. Password is encrypted using bcryptjs.
+3. User logs in with credentials.
+4. Session is created after successful login.
+5. Admin can manage student records.
 
 # CRUD Operations
-1.Create Student
-2.Read Student
-3.Update Student
-4.Delete Student
+1. Create Student
+2. Read Student
+3. Update Student
+4. Delete Student
 
 # Learning Outcomes
 - Backend Development with Node.js and Express.js
